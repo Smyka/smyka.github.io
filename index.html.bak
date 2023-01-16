@@ -1,5 +1,2 @@
-<main>
-	<button><span>Resume</span></button>
-	<button>New Game</button>
-	<button>Start</button>
-</main>
+<div class="main"><a href="#">Read More</a>
+  <div>
