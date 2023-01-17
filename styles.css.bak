@@ -378,7 +378,7 @@ body {
 .container2 {
   text-align: center;
   display: table-cell;
-  transform: translate(-5%, 100%);
+  transform: translate(-10%, 100%);
 
 }
 
