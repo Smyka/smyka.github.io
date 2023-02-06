@@ -29,7 +29,7 @@
 
     <nav class="site clear">
       <ul>
-        <li><a href="/echo.html" title="">Echo</a></li>
+        <li><a href="/echo" title="">Echo</a></li>
         <li><a href="https://github.com/smyka" title="">Github</a></li>
         <li><a href="https://docs.google.com/spreadsheets/d/1-lm6iPOWgRWn7yak4EjZzADs4PcrLeQUwehpxD3STFw/edit?usp=sharing" title="">Meta Usernames</a></li>
       </ul>
