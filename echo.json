@@ -1,0 +1,14 @@
+{
+  "contact": "x",
+  "templates": [
+    {
+      "name": "echo",
+      "sources": [
+        "https://raw.githubusercontent.com/DancingNerd/echoplace/main/EchoCurrent.png"
+      ],
+      "x": 445,
+      "y": 440
+    }
+  ],
+  "blacklist": []
+}
