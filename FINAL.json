@@ -1,0 +1,22 @@
+{
+  "contact": "x",
+  "templates": [
+    {
+      "name": "echo",
+      "sources": [
+        "https://raw.githubusercontent.com/DancingNerd/echoplace/main/EchoCurrent.png"
+      ],
+      "x": 1329,
+      "y": 1911
+    },
+    {
+      "name": "echo face",
+      "sources": [
+        "https://raw.githubusercontent.com/Smyka/smyka.github.io/main/image%20(9).png"
+      ],
+      "x": 75,
+      "y": 657
+    }
+  ],
+  "blacklist": []
+}
