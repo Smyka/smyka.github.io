@@ -62,7 +62,7 @@
                     <div class="onhover" onmouseover="hover()" onclick="zip()"></div>
                     <span class="tag">News Channel</span>
                 </div>
-                <div class="ch occupied" data-id="onliine" data-href="//github.com/smyka">
+                <div class="ch occupied" data-id="onliine" data-href="https://github.com/smyka">
                     <iframe src=""></iframe>
                     <div class="onhover" onmouseover="hover()" onclick="zip()"></div>
                     <span class="tag">Github Channel</span>
