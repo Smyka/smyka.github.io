@@ -137,8 +137,18 @@ function createCard(name, data, rank) {
 			</div>
 		</div>
 	`;
+
+	// Make the whole card clickable if a link exists
+	if (data.link) {
+		card.style.cursor = "pointer";
+		card.addEventListener("click", () => {
+			window.open(data.link, "_blank");
+		});
+	}
+
 	document.getElementById("cards-wrapper").appendChild(card);
 }
+
 
 
 
