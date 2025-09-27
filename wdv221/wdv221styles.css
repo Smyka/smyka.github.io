@@ -1,0 +1,29 @@
+@import url('https://fonts.cdnfonts.com/css/minecraft-4');
+
+html {
+	background-color: #c7ffd8;
+}
+
+h1, a {
+	color: white;
+	font-family: "Minecraft", sans-serif;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+a {
+	font-size: 2em;
+}
+
+div {
+	border: 0.5rem solid black;
+	text-align: center;
+	height: 30vh;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 1rem 1rem 0 black;
+	background-color: #342c5c;
+}
