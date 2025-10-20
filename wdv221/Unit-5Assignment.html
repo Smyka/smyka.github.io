@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>WDV221 Intro Javascript - Unit 5</title>
+	
+	<script>
+	
+		function onClickAlert() {
+			alert("Pressed!");
+		}
+	
+		function mouseOverLog() {
+			console.log("Moused over!");
+		}
+		
+		function mouseOutLog() {
+			console.log("No longer mousing over");
+		}
+		
+		function mouseOverImage() {
+			document.getElementById("image").setAttribute("src", "https://www.akc.org/wp-content/uploads/2017/11/Samoyed-standing-in-the-forest.jpg");
+		}
+		
+		function selectOnChange() {
+			console.log("Selection changed");
+		}
+		
+	</script>
+
+</head>
+
+<body id="body">
+	
+	<input type="button" name="button" id="button" value="Mouseover!" onClick="onClickAlert()">
+	
+	<p id="p" onMouseOver="mouseOverLog()">Hover over this text for a log!</p>
+	
+	<img id="image" src="https://www.dogpackapp.com/blog/wp-content/uploads/2024/11/samoyed-dog-standing-in-snow.webp" width="500">
+	
+	<select name="select" id="select">
+		<option value="None" selected>None</option>
+		<option value="Cat">Cat</option>
+		<option value="Dog">Dog</option>
+	</select>
+	
+	<script>document.getElementById("body").onload = function() {
+	
+	document.getElementById("button").addEventListener("mouseover", mouseOverLog);
+	
+	document.getElementById("p").addEventListener("mouseout", mouseOutLog);
+	
+	document.getElementById("image").addEventListener("mouseover", mouseOverImage);
+	
+	document.getElementById("select").addEventListener("change", selectOnChange);
+	};
+	</script>
+	
+
+</body>
+</html>
