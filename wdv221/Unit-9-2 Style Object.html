@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Style Object-CSS Interactions In Class Exercises</title>
+<style type="text/css">
+	#p4:hover {
+		background-color: yellow;
+	}
+	
+</style>
+<script>
+	
+	function alignH3() {
+		document.getElementById("h31").style.textAlign = "left";
+	}
+	
+	function p2Hovered() {
+		h31.style.textAlign = "center";
+	}
+	
+	function p1Clicked() {
+		p1.style.color = "red";
+	}
+	
+	function p3Hovered() {
+		p3.style.fontFamily = "Impact";
+	}
+	
+	function p3Clicked() {
+		p3.style.fontFamily = "";
+	}
+	
+	function saleSize() {
+		sale.style.fontSize = "24px";
+	}
+	
+	function saleSizeFix() {
+		sale.style.fontSize = "";
+	}
+	
+	function p5Clicked() {
+		frog.style.display = "none";
+	}
+	
+	function frogFix() {
+		frog.style.display = "";
+	}
+	
+	function frogHovered() {
+		frog.style.width = "200px";
+		frog.style.height = "200px";
+	}
+	
+	function frogClicked() {
+		frog.style.width = "100px";
+		frog.style.height = "100px";
+	}
+	
+	function p6DblClicked() {
+		p6.style.border = "3px solid black";
+	}
+	
+	function p7Hovered() {
+		p6.style.border = "";
+	}
+	
+	function p8Hovered() {
+		p8.style.backgroundColor = "green";
+	}
+	
+	function p8LostHover() {
+		p8.style.backgroundColor = "";
+	}
+	
+</script>
+</head>
+
+<body>
+<h1>WDV221 Intro Javascript</h1>
+<h3 id="h31">Style Object - CSS Interactions - In Class Exercises</h3>
+<p>Please modify this page to create the following Dynamic HMTL effects. </p>
+<p id="p1">1. Click this paragraph to change the font color to red.</p>
+<p id="p2">2. Mousever this paragraph to center the H3 element containing &quot;CSS Interactions&quot;.</p>
+<p>3. Click the button to left align the H3 element. </p>
+<p>
+  <label>
+  <input type="button" name="button" id="button" value="Submit" onclick="alignH3()"/>
+  </label>
+</p>
+<p id="p3">4. Mouseover this paragraph to change the font to a font of you choice. 5. Click on this paragraph to return the font to the default font.</p>
+<p>6. Click on the button to make the word <span id="sale">SALE</span> font size 24. </p>
+<p>
+  <label>
+  <input type="button" name="button2" id="button2" value="Submit" onclick="saleSize()"/>
+  </label>
+</p>
+<p>7. Click on the button to return the word to its original size.</p>
+<p>
+  <label>
+    <input type="button" name="button3" id="button3" value="Submit" onclick="saleSizeFix()"/>
+  </label>
+</p>
+<p id="p4">8. Use an eventhandler of your choice on this paragraph to make the paragraph background color yellow. </p>
+<p id="p5">9. Use an onclick event to hide the Frog image shown below.</p>
+<p>10. Use the following button to make the Frog image shown below reappear.</p>
+<p>
+  <input type="button" name="button4" id="button4" value="Submit" onclick="frogFix()"/>
+</p>
+<p>11. Mouseover the Frong image to make its height and width double its original size. </p>
+<p><img src="frog.jpg" width="100" height="100" id="frog"/></p>
+<p>12. Use a click event on the Frog image to make it return to original size. </p>
+<p id="p6">13. Doubleclick on this paragraph to place a border around this paragraph.</p>
+<p id="p7">14. Use an event handler of your choice to remove the border from the previous paragraph. </p>
+<p id="p8">15. Mouseover this paragraph to turn its background color to green. When you mouseoff the paragraph return it to its normal color. </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+<script>
+	let p1 = document.getElementById("p1");
+	let p2 = document.getElementById("p2");
+	let h31 = document.getElementById("h31");
+	let p3 = document.getElementById("p3");
+	let sale = document.getElementById("sale");
+	let p5 = document.getElementById("p5");
+	let frog = document.getElementById("frog");
+	let p6 = document.getElementById("p6");
+	let p7 = document.getElementById("p7");
+	p1.addEventListener("click", p1Clicked);
+	p2.addEventListener("mouseenter", p2Hovered);
+	p3.addEventListener("mouseenter", p3Hovered);
+	p3.addEventListener("click", p3Clicked);
+	p5.addEventListener("click", p5Clicked);
+	frog.addEventListener("mouseenter", frogHovered);
+	frog.addEventListener("click", frogClicked);
+	p6.addEventListener("dblclick", p6DblClicked);
+	p7.addEventListener("mouseenter", p7Hovered);
+	p8.addEventListener("mouseenter", p8Hovered);
+	p8.addEventListener("mouseleave", p8LostHover);
+
+	
+</script>
+</html>
