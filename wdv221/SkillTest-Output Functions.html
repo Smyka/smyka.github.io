@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDV221 Intro JavaScript-SkillTest</title>
+    <style>
+        #container {
+            width: 80%;
+            margin-left:auto;
+            margin-right:auto;
+            background-color:bisque;
+            padding-left:10px;
+        }
+    </style>
+	
+	<script>
+	function displayMessage() {
+		console.log("Skill Test - Output Functions");
+	}
+	
+	function outputCityName(inCityName) {
+		console.log(`You live in ${inCityName}`);
+	}
+	
+	function formatOrder(productName, productQuantity) {
+		return `You have ordered ${productQuantity} copies of ${productName}`
+	}
+	
+	displayMessage();
+	outputCityName("Ames");
+	outputCityName("Altoona");
+	console.log(formatOrder("Red Stapler", 7));
+	</script>
+
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1>WDV221 Intro JavaScript</h1>
+            <h2>Skill Test - Output Functions</h2>
+        </header>
+        <main>
+            <h3>Instructions:</h3>
+            <p>
+                Use JavaScript and HTML to complete the following instructions on this page.
+            </p>
+
+            <p>1. Display to console
+                <ul>
+                    <li>Create a function called displayMessage()</li>
+                    <li>
+                        The function will display the following "Skill Test - Output Functions" in the console.
+                    </li>
+                    <li>Call the function during run time.</li>
+                </ul>
+            </p>
+
+            <p>
+                2. Display City name
+                <ul>
+                    <li>Create a function called outputCityName()</li>
+                    <li>The function will accept one parameter called inCityName</li>
+                    <li>Concatenate "You live in" with the input value</li>
+                    <li>Output the new string in the console.</li>
+                    <li>Call the function during run time. Pass "Ames" into the function.</li>
+                    <li>Call the function during run time. Pass "Altoona" into the function.</li>
+                </ul>
+            </p>
+
+            <p>
+                3. Return a value
+                <ul>
+                    <li>Create a function called formatOrder()</li>
+                    <li>
+                        It will accept two parameters called productName and productQuantity
+                    </li>
+                    <li>
+                        Use the two input values to concatenate a string that says: "You have ordered productQuantity copies of productName".
+                    </li>
+                    <li>
+                        return the formatted message
+                    </li>
+                    <li>
+                        Call the function during run time within a console.log().
+                        Pass in "Red Stapler" and 7 for the input values.
+                    </li>
+                </ul>
+            </p>
+            <p>
+                4. Run functions with a button click
+                <ul>
+                    <li>
+                        Apply the onclick event handler to the buttons.
+                    </li>
+                    <li>
+                        Call the outputCityName( ) with the event handler on the Display WDM button. Pass in "West Des Moines" as the parameter when called.
+                    </li>
+                    <li>
+                        Call the outputCityName( ) with the event handler on the Display Bondurant button. Pass in "Bondurant" as the parameter when called.
+                    </li>
+                </ul>
+
+            </p>
+            <p>
+                <button id="displayWDM">Display WDM</button>
+            </p>
+            <p>
+                <button id="displayBDRNT">Display Bondurant</button>    
+            </p>
+            
+        </main>
+    </div>
+
+</body>
+<script>
+	document.getElementById("displayWDM").addEventListener("click", function() { outputCityName("West Des Moines") } );
+	document.getElementById("displayBDRNT").addEventListener("click", function() { outputCityName("Bondurant") } );
+</script>
+</html>
