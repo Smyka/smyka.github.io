@@ -1,0 +1,27 @@
+<script src="BankAccount.js"></script>
+<p>Check console</p>
+<script>
+myPerson = new BankAccount(100000);
+console.log(myPerson.accBalance);
+console.log(myPerson.accountInfo());
+
+myPerson.accName = "Mitchell";
+myPerson.accNumber = 1001;
+console.log("Name and number changed");
+console.log(myPerson.accountInfo());
+
+myPerson.deposit(5000);
+console.log("Deposited 5k");
+console.log(myPerson.accBalance);
+
+myPerson.withdraw(9000);
+console.log("Withdrew 9k");
+console.log(myPerson.accBalance);
+
+console.log("Balance:");
+console.log(myPerson.balance());
+
+myPerson.transactionAdd("D", 5000, new Date("11/28/2025"));
+console.log("Transaction added");
+console.log(myPerson.accTransactions[0]);
+</script>
