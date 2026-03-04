@@ -1,0 +1,368 @@
+ <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8; /* Light gray background */
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            text-align: center;
+            /* Fade-in effect on page load */
+            opacity: 0;
+            animation: fadeIn 1s forwards; /* 1 second fade in on load */
+            transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition for background/text color changes */
+            position: relative; /* Needed for absolute positioning of particles */
+            overflow-x: hidden; /* Prevent horizontal scroll due to particles */
+        }
+
+        /* Keyframes for fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Main Container for the Slider */
+        .main-slider-container {
+            width: 90%; /* Responsive width */
+            max-width: 1000px; /* Max width for larger screens */
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            position: relative; /* Ensure it's above particles */
+            z-index: 10;
+            transition: background-color 0.5s ease, box-shadow 0.5s ease; /* Smooth transition for container */
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            transition: color 0.5s ease; /* Smooth transition for heading color */
+        }
+
+        /* Horizontal Slider Specific Styles */
+        .w3-responsive-custom {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
+            white-space: nowrap; /* Keep items in a single line */
+            padding-bottom: 1rem; /* Space for scrollbar */
+        }
+
+        .w3-card-project {
+            display: inline-block; /* Essential for horizontal layout */
+            width: 280px; /* Fixed width for each project card */
+            height: 200px; /* Fixed height for consistency */
+            margin-right: 1.5rem; /* Space between cards */
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            scroll-snap-align: center; /* Snap to center of card */
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: #f8f8f8; /* Slightly different background for cards */
+        }
+
+        .w3-card-project:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .w3-card-project img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the card area */
+            border-radius: 8px;
+        }
+
+        .project-title-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.8rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .w3-card-project:hover .project-title-overlay {
+            opacity: 1;
+        }
+
+        /* Lightbox Modal Styles (W3.CSS compatible) */
+        .w3-modal-custom {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+            padding-top: 60px; /* Offset from top */
+        }
+
+        .w3-modal-content-custom {
+            margin: auto;
+            background-color: #fefefe;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative; /* For close button positioning */
+            animation-name: animatetop;
+            animation-duration: 0.4s;
+            max-height: 90vh; /* Max height for content */
+            overflow-y: auto; /* Scroll if content exceeds height */
+        }
+
+        /* Add Animation */
+        @keyframes animatetop {
+            from {top:-300px; opacity:0}
+            to {top:0; opacity:1}
+        }
+
+        .w3-closebtn-custom {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute; /* Position relative to modal-content */
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .w3-closebtn-custom:hover,
+        .w3-closebtn-custom:focus {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .lightbox-image-full {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .lightbox-section h3 {
+            color: #0a66c2; /* LinkedIn blue for section titles */
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            text-align: left; /* Align text left within modal sections */
+        }
+        .lightbox-section p, .lightbox-section ul {
+            text-align: left; /* Align text left within modal sections */
+            color: #555;
+        }
+        .lightbox-section ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+        }
+        .lightbox-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Info and Button Styles */
+        .contact-info {
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+        .contact-info a { /* Styling for social links - kept consistent */
+            text-decoration: none;
+            color: #007bff; /* A distinct blue for links */
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            border: 1px solid #007bff;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-weight: bold; /* Make link text bold */
+        }
+        .contact-info a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .contact-info svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            fill: currentColor; /* Inherit color from parent */
+        }
+
+        /* Custom button styling (reverted to previous version) */
+        .w3-button.custom-button {
+            border-radius: 9999px !important; /* Force rounded full */
+            padding: 0.5rem 1rem; /* px-4 py-2 equivalent */
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 0.5rem; /* Match margin of contact links */
+            font-weight: bold; /* Make button text bold */
+            display: flex; /* Ensure icon alignment */
+            align-items: center; /* Ensure icon alignment */
+        }
+        .w3-button.custom-button.w3-blue-custom {
+            background-color: #3b82f6; /* Custom blue, similar to Tailwind's default */
+            color: white;
+        }
+        .w3-button.custom-button.w3-blue-custom:hover {
+            background-color: #2563eb;
+        }
+        .w3-button.custom-button.w3-red-custom { /* Using custom for consistency in naming */
+            background-color: #f44336; /* Red color for download */
+            color: white;
+        }
+        .w3-button.custom-button.w3-red-custom:hover {
+            background-color: #da190b; /* Darker red on hover */
+        }
+
+
+        /* Dark mode styles */
+        html.dark {
+            body {
+                background-color: #1a202c; /* Dark background */
+                color: #e2e8f0; /* Light text */
+            }
+            .main-slider-container {
+                background-color: #2d3748; /* Darker container */
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Darker shadow */
+            }
+            h1 {
+                color: #f7fafc; /* Lighter headings */
+            }
+            .lightbox-section h3 {
+                color: #90cdf4; /* Lighter blue for dark mode */
+                border-bottom-color: #4a5568; /* Darker border */
+            }
+            .lightbox-section p, .lightbox-section ul {
+                color: #cbd5e0; /* Lighter text for dark mode */
+            }
+            .w3-modal-content-custom {
+                background-color: #2d3748;
+                border-color: #4a5568;
+            }
+            .w3-closebtn-custom {
+                color: #e2e8f0;
+            }
+            .w3-closebtn-custom:hover,
+            .w3-closebtn-custom:focus {
+                color: #f7fafc;
+            }
+
+            /* Dark mode styles for contact info and buttons */
+            html.dark .contact-info a {
+                color: #90cdf4; /* Dark mode link blue */
+                border-color: #90cdf4;
+                background-color: transparent;
+            }
+            html.dark .contact-info a:hover {
+                background-color: #90cdf4;
+                color: #1a202c; /* Dark body background */
+            }
+
+            html.dark .w3-button.custom-button.w3-blue-custom {
+                background-color: #63b3ed; /* Lighter blue for dark mode button */
+                color: white;
+            }
+            html.dark .w3-button.custom-button.w3-blue-custom:hover {
+                background-color: #4299e1; /* Darker hover for blue */
+            }
+
+            html.dark .w3-button.custom-button.w3-red-custom {
+                background-color: #ef5350; /* Slightly lighter red for dark mode */
+                color: white;
+            }
+            html.dark .w3-button.custom-button.w3-red-custom:hover {
+                background-color: #e53935; /* Darker hover for red */
+            }
+        }
+
+        /* Particles.js container styles */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1; /* Behind the main content */
+            pointer-events: none; /* Allow clicks to pass through to elements behind it */
+            transition: opacity 0.5s ease; /* Smooth fade for particles */
+            opacity: 0; /* Hidden by default */
+        }
+
+        /* Show particles when dark mode is active */
+        html.dark #particles-js {
+            opacity: 1;
+        }
+
+        /* Print-specific styles */
+        @media print {
+            body {
+                background-color: #fff !important;
+                color: #000 !important;
+            }
+            .main-slider-container {
+                box-shadow: none !important;
+                border: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .contact-info, .w3-responsive-custom, .w3-modal-custom, .w3-button, #particles-js {
+                display: none !important; /* Hide all interactive elements, slider, and particles */
+            }
+            h1, p {
+                color: #000 !important;
+            }
+            /* Only show the lightbox content for printing when its active */
+            .w3-modal-content-custom {
+                display: block !important;
+                position: static !important;
+                width: auto !important;
+                max-width: none !important;
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                overflow: visible !important;
+                background-color: transparent !important;
+            }
+            .lightbox-image-full {
+                display: block !important;
+            }
+            .lightbox-section h3, .lightbox-section p, .lightbox-section ul, .lightbox-section li {
+                color: #000 !important;
+                text-align: left !important;
+            }
+            .w3-closebtn-custom {
+                display: none !important;
+            }
+        }
+    </style>
