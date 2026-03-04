@@ -491,6 +491,10 @@
                 <img src="https://placehold.co/400x300/007bff/ffffff?text=No%20Shot%20Tracker" alt="No Shot Tracker">
                 <div class="project-title-overlay">Stat tracking website</div>
             </div>
+			<div class="w3-card-project" data-project-id="project2">
+                <img src="https://placehold.co/400x300/008000/ffffff?text=Better%20Outlast\nPresence" alt="Better Outlast Presence">
+                <div class="project-title-overlay">Discord presence for Outlast Trials</div>
+            </div>
         </div>
     </div>
 
@@ -538,6 +542,16 @@
                 ],
                 portfolioDetails: 'This is a site I created in Python with Flask that tracks player\'s stats in an upcoming video game called No Shot. The game already has a public API implemented which is where I am sourcing the data from. A seperate Python script scrapes the leaderboard data every so often, as well as each individual player\'s data. The data is stored in a MySQL database and whenever a user requests the site it will pull data from that database rather than the API. The UI is taken from Codepen.io and was tweaked by AI and myself to fit the needs of the site. This project is still a work in progress and is being updated with features and new data to display as the API changes. The project is deployed on a Google Cloud Ubuntu virtual machine and you can visit it <a href="https://ns.smyka.org/leaderboard">here.</a>',
                 skills: ["Python", "Flask", "MySQL", "RESTful API", "Google Cloud VM"]
+            },
+			"project2": {
+                title: '<a href="https://github.com/Smyka/Better-Outlast-Presence">Better Outlast Presence</a>',
+                image: "https://raw.githubusercontent.com/Smyka/Better-Outlast-Presence/refs/heads/main/images/6.png",
+				experience: [
+                    "Discord rich presence",
+					"Automatic game detection"
+                ],
+                portfolioDetails: 'This is a simple tool I created in Python to add Discord rich presence support to The Outlast Trials. It works by reading off your game\'s log file to find different game states. The tool overrides the usual boring presence, which has no state changes and doesn\'t display game information.',
+                skills: ["Python", "PyPresence"]
             }
         };
 
