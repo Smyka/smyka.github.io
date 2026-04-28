@@ -492,8 +492,8 @@
                 <div class="project-title-overlay">Stat tracking website</div>
             </div>
 			<div class="w3-card-project" data-project-id="project2">
-                <img src="https://placehold.co/400x300/008000/ffffff?text=Better%20Outlast\nPresence" alt="Better Outlast Presence">
-                <div class="project-title-overlay">Discord presence for Outlast Trials</div>
+                <img src="https://placehold.co/400x300/008000/ffffff?text=Lathe%20%20%20" alt="Lathe">
+                <div class="project-title-overlay">Mod manager for The Outlast Trials</div>
             </div>
         </div>
     </div>
@@ -544,14 +544,19 @@
                 skills: ["Python", "Flask", "MySQL", "RESTful API", "Google Cloud VM"]
             },
 			"project2": {
-                title: '<a href="https://github.com/Smyka/Better-Outlast-Presence">Better Outlast Presence</a>',
-                image: "https://raw.githubusercontent.com/Smyka/Better-Outlast-Presence/refs/heads/main/images/6.png",
+                title: '<a href="https://github.com/Smyka/Lathe">Lathe</a>',
+                image: "https://i.imgur.com/3Np1csU.png",
 				experience: [
+					"Easy mod enabling/disabling",
+					"Automatic mod detection when downloading from nexusmods.com (the tool will extract the file and add it for you)",
+					"Mod update detection",
+					"Software update detection",
+					"Game tweaks that change settings that aren't possible in-game",
                     "Discord rich presence",
 					"Automatic game detection"
                 ],
-                portfolioDetails: 'This is a simple tool I created in Python to add Discord rich presence support to The Outlast Trials. It works by reading off your game\'s log file to find different game states. The tool overrides the usual boring presence, which has no state changes and doesn\'t display game information.',
-                skills: ["Python", "PyPresence"]
+                portfolioDetails: 'Lathe is the first mod manager for The Outlast Trials. I wrote it in C# with Windows forms for the GUI. It works by using a file system watcher to monitor the downloads folder and check what files are being downloaded from nexusmods.com. It audo adds these files to the mod manager. Alternatively, users can add local mods as well. Mod enabling and disabling is done with a simple checkbox, which moves the mod into the game mod folder when enabled, and into the tool\'s mod folder when disabled. The tool also does live parsing on the game\'s log file, which allows the tool to display detailed game information on Discord. It adds support for tweaking too which is done by modifying various config files for the game.',
+                skills: ["C#", "Winforms", "GraphQL/REST APIs"]
             }
         };
 
